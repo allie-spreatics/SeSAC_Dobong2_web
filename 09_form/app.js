@@ -60,10 +60,36 @@ app.get("/practice1", (req, res) => {
 });
 
 // 2. /practice2에 대한 GET 요청
+app.get("/practice2", (req, res) => {
+  res.render("practice/practice2");
+});
 
-// 3. 주소 지정 form GET요청
-
-// 4. 주소 지정 form POST요청
+// 3. /practice1-get form GET요청
+app.get("/practice1-get", (req, res) => {
+  // console.log(req.query);
+  /* 
+  {
+  name: 'd',
+  gender: '여자',
+  year: '1980',
+  month: '1',
+  date: '1',
+  favorite: [ '패션', '음식' ]
+}
+  */
+  res.render("practice/practice_result", {
+    userInfo: req.query,
+    addInfo: false, // practice1에서는 적은 정보를 주고 있음
+  });
+});
+// 4. /practice2-post form POST요청
+app.post("/practice2-post", (req, res) => {
+  console.log(req.body);
+  res.render("practice/practice_result", {
+    userInfo: req.body,
+    addInfo: true,
+  });
+});
 
 app.listen(PORT, function () {
   console.log(`http://localhost:${PORT}`);

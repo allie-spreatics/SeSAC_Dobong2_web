@@ -10,6 +10,9 @@ app.set("views", "./views");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+const realId = "banana";
+const realPw = "4321";
+
 /* API */
 app.get("/", (req, res) => {
   res.render("index");
@@ -62,6 +65,43 @@ app.post("/fetch", (req, res) => {
   res.send(req.body);
 });
 
+// 외부 api 사용하기
+app.get("/api", (req, res) => {
+  res.render("api");
+});
+
+/* 실습문제 */
+
+app.get("/practice1", (req, res) => {
+  res.render("practice/practice1.ejs");
+});
+app.get("/practice2", (req, res) => {
+  res.render("practice/practice2.ejs");
+});
+
+// /axios-practice1 GET
+app.get("/axios-practice1", (req, res) => {
+  console.log(req.query);
+  res.send(req.query);
+});
+
+// const realId = "banana";
+// const realPw = "4321";
+
+// /practice2 POST
+app.post("/practice2", (req, res) => {
+  console.log(req.body);
+  // { userId: 'fff', userPw: 'fff' }
+  // const { userId, userPw } = req.body;
+  if (realId === req.body.userId && realPw === req.body.userPw) {
+    res.send({ isSuccess: true, userId: req.body.userId });
+  } else {
+    res.send({ isSuccess: false });
+  }
+  // res.send("응답완료");
+});
+
+// 포트 열기
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });

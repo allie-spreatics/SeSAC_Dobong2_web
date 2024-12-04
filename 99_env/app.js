@@ -8,10 +8,13 @@ const PORT = process.env.PORT;
 console.log("PORT number", PORT);
 console.log("db name", process.env.DB_DATABSE);
 
+<<<<<<< HEAD
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
 
+=======
+>>>>>>> 073a4962dff6225a98258618d5a3c419dab0a2d9
 app.get("/", (req, res) => {
   res.send("get요청입니다.");
 });

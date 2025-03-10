@@ -1,0 +1,11 @@
+pack1: default- 같은 패키지에서 접근할 수 있는지 확인 (default와 public)
+pack2: 외부패키지에서 pack1의 클래스 사용해보기(default 와 public)
+
+pack3: 같은 패키지에서 필드와 메소드의 접근제한자 확인(public, default, private)
+pack4: 외부 패키지에서 필드와 메소드 접근제한자 확인(public, default, private)
+
+pack5: getter와 setter, 그리고 싱글턴 패턴
+// ---------------------------------
+// pack6부터는 상속 배운 상태로 확인
+pack6: protected
+pack7: protected
